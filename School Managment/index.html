@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>School Managment</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.lab').hide();
+            $('#sub').click(function () {
+                $('.log-in').hide(1000);
+                $('.home').show(1000);
+
+            })
+            $('#exit').click(function () {
+                $('.home').hide(1000);
+                $('.log-in').show(1000);
+
+            })
+
+
+            $('#student').click(function () {
+                $('.home').hide(1000);
+                $('.student').show(1000);
+            })
+
+            $('#stu-exit').click(function () {
+                $('.student').hide(1000);
+                $('.home').show(1000);
+            })
+
+            $('#add-stu').click(function () {
+                $('.add-student').show(1000);
+                $('.students-list').hide(1000);
+            })
+
+            $('#delete').click(function () {
+                $('.add-student').hide(1000);
+                $('.students-list').hide(1000);
+            })
+
+            $('#display-student').click(function () {
+                $('.students-list').toggle(1000);
+                $('.add-student').hide(1000);
+            })
+
+            $('#lab').click(function () {
+                $('.home').hide(1000);
+                $('.lab').show(1000);
+            })
+
+            $('#com-lab').click(function () {
+                $('.com-lab-det').show(1000);
+                $('.show-expremental-lab').hide(1000);
+            })
+
+            $('#med-lab').click(function () {
+                $('.com-lab-det').hide(1000);
+                $('.show-expremental-lab').show(1000);
+            })
+
+            $('#lab-refresh').click(function () {
+                $('.com-lab-det').hide(1000);
+                $('.show-expremental-lab').hide(1000);
+            })
+
+
+            $('#lab-exit').click(function () {
+                $('.lab').hide(1000);
+                $('.home').show(1000);
+            })
+
+            $('#staff-management').click(function () {
+                $('.staff').show(1000);
+                $('.home').hide(1000);
+            })
+            $('#delete-staff').click(function () {
+                $('.staff-list').hide(1000);
+                $('.add-staff').hide(1000);
+            })
+            $('#add-staff').click(function () {
+                $('.add-staff').show(1000);
+                $('.staff-list').hide(1000);
+            })
+
+            $('#staff-exit').click(function () {
+                $('.home').show(1000);
+                $('.add-staff').hide(1000);
+                $('.staff-list').hide(1000);
+                $('.staff').hide(1000);
+            })
+
+            $('#dis-staff').click(function () {
+                $('.staff-list').show(1000);
+                $('.add-staff').hide(1000);
+            })
+
+
+            $('#account').click(function () {
+
+                $('.cash-counter').show(1000);
+                $('.home').hide(1000);
+            })
+            $('#exam-fess').click(function () {
+                $('.cash-list').hide(1000);
+                $('.exam-fess').show(1000);
+            })
+
+            $('#cash-ref').click(function () {
+                $('.cash-list').hide(1000);
+                $('.exam-fess').hide(1000);
+            })
+            $('#show-cashrec').click(function(){
+                $('.cash-list').show(100);
+                $('.exam-fess').hide(1000);
+            })
+
+
+            $('#cash-exit').click(function () {
+                $('.cash-counter').hide(1000);
+                $('.cash-list').show(1000);
+                $('.exam-fess').hide(1000);
+                $('.home').show(1000);
+            })
+
+            $('#about').click(function () {
+                $('.library').show(1000);
+                $('.home').hide(1000);
+            })
+            $('#lib-exit').click(function () {
+                $('.home').show(1000);
+                $('.library').hide(1000);
+            })
+            $('#add-libac').click(function () {
+                $('.add-libac').show(1000);
+                $('.lib-rec').hide(1000);
+            })
+            $('#lib-ref').click(function () {
+                $('.add-libac').hide(1000);
+                $('.lib-rec').hide(1000);
+            })
+            $('#display-lib-rec').click(function () {
+                $('.add-libac').hide(1000);
+                $('.lib-rec').show(1000);
+            })
+
+
+            $('#acces').click(function () {
+                alert("Our School Have No Any Accssories....")
+            })
+
+            $('.add-librec').click(function () {
+                $('#mobile').val(" ");
+                $('#lib-std').val(" ");
+                $('#lib-name').val(" ");
+                $('#prn').val(" ");
+            })
+            $('.add').click(function (event) {
+                event.preventDefault();
+                var name = $('#name').val();
+
+                var dob = $('#DOB').val();
+                var id = $('#id').val();
+
+                var std = $('#std').val();
+
+                var dep = $('#dep').val();
+
+                var mob = $('#mob').val();
+
+
+                var sr = $('.tbl').children().length + 1;
+
+
+                var data = "<tr><td>" + sr + "</td>  <td>" + name + "</td><td>" + dob + "</td><td>" + id + "</td><td>" + std + "</td><td>" + dep + "</td><td>" + mob + "</td><td><button class='btn btn-danger den' id='delet'>DELETE</button></td></tr>"
+
+                $('.showdata-table tbody').append(data);
+
+
+                $('#name').val(" ");
+                $('#DOB').val("");
+                $('#id').val(" ");
+                $('#std').val(" ");
+                $('#dep').val(" ");
+                $('#mob').val(" ");
+                $('.den').click(function (event) {
+                    event.preventDefault();
+
+
+                    $(this).parent().parent().remove();
+                })
+
+            })
+
+            $('.add-sta').click(function (event) {
+                event.preventDefault();
+                var staffname = $('#staff-name').val();
+
+                var edu = $('#edu').val();
+                var mob = $('#mob').val();
+
+                var lecstd = $('#lec-std').val();
+
+                var lecsub = $('#lec-sub').val();
+
+                var Time = $('#lec-time').val();
+
+
+                var sr = $('.tbl').children().length + 1;
+
+
+                var data = "<tr><td>" + sr + "</td>  <td>" + staffname + "</td><td>" + edu + "</td><td>" + mob + "</td><td>" + lecsub + "</td><td>" + lecstd + "</td><td>" + Time + "</td><td><button class='btn btn-danger den' id='delet'>DELETE</button></td></tr>"
+
+                $('.tab tbody').append(data);
+
+
+                $('#staff-name').val(" ");
+                $('#edu').val("");
+                $('#lec-sub').val(" ");
+                $('#lec-std').val(" ");
+                $('#lec-time').val(" ");
+                $('#mob').val(" ");
+                $('.den').click(function (event) {
+                    event.preventDefault();
+
+
+                    $(this).parent().parent().remove();
+                })
+
+            })
+
+            $('.ex-fess').click(function (event) {
+                event.preventDefault();
+                var rn = $('#rn').val();
+
+                var cname = $('#cash-name').val();
+                var etype = $('#exam-type').val();
+
+                var cstd = $('#cash-std').val();
+
+                var exfess = $('#ex-fess').val();
+
+
+
+                var sr = $('.fess-body').children().length + 1;
+
+
+                var data = "<tr><td>" + sr + "</td>  <td>" + rn + "</td><td>" + cname+ "</td><td>" + cstd + "</td><td>" + etype + "</td><td>" + exfess + "</td><td><button class='btn btn-danger den' id='delet'>DELETE</button></td></tr>"
+
+                $('.cash-list tbody').append(data);
+
+
+                $('#rn').val(" ");
+                $('#cash-name').val("");
+                $('#cash-std').val(" ");
+                $('#exam-type').val(" ");
+                $('#ex-fess').val(" ");
+                $('.den').click(function (event) {
+                    event.preventDefault();
+
+
+                    $(this).parent().parent().remove();
+                })
+
+            })
+
+
+
+        })
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- ------------------------------Start Home Page--------------------------------------- -->
+
+    <div class="home">
+
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** WELCOME TO SCHOOL MANAGMENT *****</p>
+                </center>
+            </div>
+        </center>
+
+        <div class="department">
+            <div class="dep-one" id="student">
+                <center>
+                    <p>STUDENT MANAGEMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="lab">
+                <center>
+                    <p>LAB MANAGEMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="staff-management">
+                <center>
+                    <p>STAFF MANAGEMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="acces">
+                <center>
+                    <p>ACCESSORIES MANAGMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="account">
+                <center>
+                    <p>CASH COUNTER MANAGMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="about">
+                <center>
+                    <p>LIBRARY MANAGEMENT</p>
+                </center>
+            </div>
+            <div class="dep-one" id="exit">
+                <center>
+                    <p>LOG-OUT</p>
+                </center>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- -------------------------------------End Home Page--------------------------------------- -->
+
+    <!-- ---------------------------------------Start Student Page--------------------------------------- -->
+
+    <div class="student">
+
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** STUDENT MANAGEMENT *****</p>
+                </center>
+            </div>
+        </center>
+        <div class="dep-one" id="delete">
+            <center>
+                <p>REFRESH</p>
+            </center>
+        </div>
+        <div class="dep-one" id="add">
+            <center>
+                <p id="add-stu">ADD STUDENT</p>
+            </center>
+        </div>
+        <div class="dep-one" id="display-student">
+            <center>
+                <p>SHOW DATA</p>
+            </center>
+        </div>
+
+        <div class="dep-one" class="two" id="stu-exit">
+            <center>
+                <p>EXIT</p>
+            </center>
+        </div>
+
+        <!-- ------------------------------------Student List----------------------------- -->
+
+        <center>
+            <div class="students-list">
+                <table class="showdata-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">SR.NO</th>
+                            <th scope="col">STUDENT NAME</th>
+                            <th scope="col">DATE OF BIRTH</th>
+                            <th scope="col">STUDENT ID</th>
+                            <th scope="col">STANDARD</th>
+                            <th scope="col">MEDIUM</th>
+                            <th scope="col">MOBILE.NO</th>
+                            <th scope="col">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbl">
+
+
+                    </tbody>
+                </table>
+            </div>
+        </center>
+
+        <!-- ----------------------------------------Add Student--------------------------------- -->
+
+        <center>
+            <div class="add-student">
+
+                <center>
+                    <p id="stu-head">ADD STUDENT</p>
+                </center>
+
+                <div class="add-form">
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="NAME">STUDENT NAME</label>
+                            <input type="text" id="name" placeholder="Enter Student Name">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="DOB">Date Of Birth</label>
+                            <input type="date" id="DOB" placeholder="enter Date of Birth">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="Id">STUDENT ID.NO.</label>
+                            <input type="number" id="id" placeholder="Enter student Id.No.">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="std">STANDARD</label>
+                            <input type="text" id="std" placeholder="Enter standard">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="dep">MEDIUM</label>
+                            <input type="text" id="dep" placeholder="Like : Marathi , English , Semi-English">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="number">MOBILE.NO</label>
+                            <input type="number" id="mob" placeholder="Enter Your Contact No. ">
+                        </div>
+                    </center>
+
+
+                    <button type="submit" class="add">ADD</button>
+                </div>
+
+            </div>
+        </center>
+
+    </div>
+
+    <!-- -----------------------------------------End Student Page------------------------ -->
+
+    <!-- ------------------------------------Start Lab Page--------------------------------------- -->
+
+    <div class="lab">
+
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** LAB MANAGEMENT *****</p>
+                </center>
+            </div>
+        </center>
+        <div class="dep-one" id="lab-refresh">
+            <center>
+                <p id="add-stu">REFRESH</p>
+            </center>
+        </div>
+        <div class="dep-one" id="med-lab">
+            <center>
+                <p id="add-stu">EXPERIMENTAL LAB</p>
+            </center>
+        </div>
+
+        <div class="dep-one" id="com-lab">
+            <center>
+                <p id="add-stu">COMPUTER LAB</p>
+            </center>
+        </div>
+        <div class="dep-one" id="lab-exit">
+            <center>
+                <p id="add-stu">EXIT</p>
+            </center>
+        </div>
+
+        <!-- --------------------------------Computer lab------------------------------ -->
+        <center>
+            <div class="com-lab-det">
+                <table class="show-com-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <center>SR.NO</center>
+                            </th>
+                            <th scope="col">
+                                <center>LAB NAME</center>
+                            </th>
+                            <th scope="col">
+                                <center>MENTOR NAME</center>
+                            </th>
+                            <th scope="col">
+                                <center>NO.PC</center>
+                            </th>
+                            <th scope="col">
+                                <center>NO.LAPTOP</center>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <center>1</center>
+                            </td>
+                            <td>
+                                <center>LAB A</center>
+                            </td>
+                            <td>
+                                <center>PROF.SHINDE SIR</center>
+                            </td>
+                            <td>
+                                <center>20</center>
+                            </td>
+                            <td>
+                                <center>3</center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>2</center>
+                            </td>
+                            <td>
+                                <center>LAB B</center>
+                            </td>
+                            <td>
+                                <center>PROF.MUKKAWAR SIR</center>
+                            </td>
+                            <td>
+                                <center>6</center>
+                            </td>
+                            <td>
+                                <center>30</center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>3</center>
+                            </td>
+                            <td>
+                                <center>LAB C</center>
+                            </td>
+                            <td>
+                                <center>PROF.GAIKWAD SIR</center>
+                            </td>
+                            <td>
+                                <center>20</center>
+                            </td>
+                            <td>
+                                <center>10</center>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </center>
+    <!-- -------------------------------------------Expermental_lab---------------------------------------------- -->
+        <center>
+            <div class="show-expremental-lab">
+                <table classs="phyche">
+                    <thead>
+                        <tr>
+                            <th>
+ <!-- -----------------------------------------Physics lab----------------------------------------------------------- -->
+                                <center>A) PHYSICS LAB</center>
+                                <table>
+                                    <thead>
+                                        <th>SR.NO</th>
+                                        <th>LAB NAME</th>
+                                        <th>MENTOR NAME</th>
+                                        <th>EQUIPMENTS</th>
+                                    </thead>
+                                    <tbody>
+                                        <td>1</td>
+                                        <td>NEWTON'S LAB</td>
+                                        <td>PROF. PANDHARE MADAM</td>
+                                        <center>
+                                            <td>
+                                                <center>
+                                                    <ul>
+                                                        <li>PRISM</li>
+                                                        <li>LENS</li>
+                                                        <li>MIRROR</li>
+                                                        <li>GLASS SLAB</li>
+                                                        <li>PENDULUM</li>
+                                                        <li>COMPASS</li>
+                                                        <li>MAGNET</li>
+                                                        <li>RESISTOR</li>
+                                                        <li>RESISTOR</li>
+                                                        <li>GALVANOMETER</li>
+                                                        <li>OHM'S LAW APPARATUS</li>
+                                                    </ul>
+                                                </center>
+                                            </td>
+                                        </center>
+                                    </tbody>
+                                </table>
+                            </th>
+ <!-- -------------------------------------------------chemistry lab---------------------------------------------------- -->
+                            <th>
+                                <center> B)CHEMISTRY LAB</center>
+                                <table>
+                                    <thead>
+                                        <th>SR.NO</th>
+                                        <th>LAB NAME</th>
+                                        <th>MENTOR NAME</th>
+                                        <th>EQUIPMENTS</th>
+                                    </thead>
+                                    <tbody>
+                                        <td>1</td>
+                                        <td>OXYZEN LAB</td>
+                                        <td>PROF. SIRSAT SIR</td>
+                                        <center>
+                                            <td>
+                                                <center>
+                                                    <ul>
+                                                        <li>ERLENMEYER FLASK</li>
+                                                        <li>BEAKER</li>
+                                                        <li>TEST TUBE</li>
+                                                        <li>VIAL WITH CAP</li>
+                                                        <li>DROPPER</li>
+                                                        <li>LITMUS AND FILTER PAPERS</li>
+                                                        <li>LATEX GLOVES</li>
+                                                        <li>SAFTY GOGGLES</li>
+                                                        <li>LAB APRON</li>
+                                                        <li>BURNER</li>
+                                                        <li>FUNNELS</li>
+                                                    </ul>
+                                                </center>
+                                            </td>
+                                        </center>
+                                    </tbody>
+                                </table>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </center>
+
+    </div>
+
+    <!-- --------------------------------End Lab Page--------------------------------------- -->
+
+    <!-- -----------------------------------Start Staff Page--------------------------------------- -->
+
+    <div class="staff">
+
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** Staff MANAGEMENT *****</p>
+                </center>
+            </div>
+        </center>
+
+
+        <div class="dep-one" id="delete-staff">
+            <center>
+                <p>REFRESH</p>
+            </center>
+        </div>
+        <div class="dep-one" id="add-staff">
+            <center>
+                <p id="add-stu">ADD STAFF</p>
+            </center>
+        </div>
+        <div class="dep-one" id="dis-staff">
+            <center>
+                <p>SHOW DATA</p>
+            </center>
+        </div>
+
+        <div class="dep-one" id="staff-exit">
+            <center>
+                <p>EXIT</p>
+            </center>
+        </div>
+<!-- --------------------------------------------------------------Star staff_list page---------------------------------------------------------------------------- -->
+        <center>
+            <div class="staff-list">
+
+                <center>
+                    <div class="staff-list">
+                        <table class="tab">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <center>Sr No.</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>STAFF NAME</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>EDUCATION</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>MOBILE NO.</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>LECTURE SUBJECT</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>LECTURE STANDARD</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>LECTURE TIME</center>
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>PROF.SURESH MATE</td>
+                                    <td>B.ED</td>
+                                    <td>8590875629</td>
+                                    <td>MARATHI , HISTORY</td>
+                                    <td>4TH , 7TH</td>
+                                    <td>10 TO 11 , 3 TO 4</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>PROF.JANARDHAN AABUJ</td>
+                                    <td>M.sc , B.sc , B.ED</td>
+                                    <td>9309179792</td>
+                                    <td>HINDI , MATH</td>
+                                    <td>5TH , 7TH</td>
+                                    <td>11 TO 12 , 12 TO 1 ,2 TO 3 , 3 TO 4 </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>PROF.SHARAD LATE</td>
+                                    <td>B.ED</td>
+                                    <td>9034578289</td>
+                                    <td>ENGLISH</td>
+                                    <td>5TH , 6TH ,7TH</td>
+                                    <td>12 To 1 , 3 TO 4 , 2 TO 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </center>
+
+            </div>
+        </center>
+<!-- --------------------------------------------------------- Start Add_staff Page--------------------------------------------------------------------------         -->
+        <center>
+            <div class="add-staff">
+
+                <center>
+                    <p id="stu-head">ADD STAFF</p>
+                </center>
+
+                <div class="add-form">
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="staff-name">STAFF NAME</label>
+                            <input type="text" id="staff-name" placeholder="Enter Staff Name">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="edu">EDUCATION</label>
+                            <input type="text" id="edu" placeholder="Enter Education Of Staff">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="number">MOBILE.NO</label>
+                            <input type="number" id="mob" placeholder="Enter Your Contact No. ">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="lec-sub">LECTURE SUBJECT</label>
+                            <input type="text" id="lec-sub" placeholder="Enter Lecture Subject">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="lec-std">LECTURE STANDARD</label>
+                            <input type="text" id="lec-std" placeholder="Enter Lecture Standard ">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="lec-time">LECTURE TIME</label>
+                            <input type="text" id="lec-time" placeholder="Enter Lecture Time">
+                        </div>
+                    </center>
+                    <button type="submit" class="add-sta">ADD</button>
+                </div>
+
+            </div>
+        </center>
+<!-- ----------------------------------------------------------End Staff Page-------------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------Start Library Page--------------------------------------------------------------------------------------------- -->
+    </div>
+    <div class="library">
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** LIBRARYMANAGEMENT *****</p>
+                </center>
+            </div>
+        </center>
+        <div class="dep-one" id="lib-ref">
+            <center>
+                <p>REFRESH</p>
+            </center>
+        </div>
+        <div class="dep-one" id="add-libac">
+            <center>
+                <p id="add-stu">OPEN STUDENT LIBRARY A/C</p>
+            </center>
+        </div>
+        <div class="dep-one" id="display-lib-rec">
+            <center>
+                <p>LIABRARY RECORD</p>
+            </center>
+        </div>
+
+        <div class="dep-one" class="two" id="lib-exit">
+            <center>
+                <p>EXIT</p>
+            </center>
+        </div>
+<!-- -----------------------------------------------------------------------Start Add Student In Library Page------------------------------------------------------------------------------------------------  -       -->
+        <center>
+            <div class="add-libac">
+
+                <center>
+                    <p id="stu-head">ADD STUDENT IN LIBRARY </p>
+                </center>
+
+                <div class="add-libform">
+                    <center>
+                        <div class="opt-one">
+                            <label for="prn">PRN.NO</label>
+                            <input type="number" id="prn" placeholder="Enter STUDENT PRN.No">
+                        </div>
+                    </center>
+
+                    <center>
+                        <div class="opt-one">
+                            <label for="lib-name">STUDENT NAME</label>
+                            <input type="text" id="lib-name" placeholder="Enter Student Name">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="lib-std"> STANDARD</label>
+                            <input type="text" id="lib-std" placeholder="Enter Standard ">
+                        </div>
+                    </center>
+                    <center>
+                        <div class="opt-one">
+                            <label for="mobile">MOBILE.NO</label>
+                            <input type="number" id="mobile" placeholder="Enter Your Contact No. ">
+                        </div>
+                    </center>
+
+
+                    <button type="submit" class="add-librec">OPEN A/C</button>
+                </div>
+
+            </div>
+        </center>
+<!-- ------------------------------------------------------------------Start Show Library Data Page-------------------------------------------------------------------------------------------------------        -->
+        <center>
+            <div class="lib-rec">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                STD
+                            </th>
+                            <th>
+                                TOTAL.NO OF BOOK
+                            </th>
+                            <th>
+                                AVAIBLE
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                1
+                            </th>
+                            <td>
+                                40 SET
+                            </td>
+                            <td>
+                                10 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                2
+                            </th>
+                            <td>
+                                30 SET
+                            </td>
+                            <td>
+                                5 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                3
+                            </th>
+                            <td>
+                                60 SET
+                            </td>
+                            <td>
+                                16 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                4
+                            </th>
+                            <td>
+                                20 SET
+                            </td>
+                            <td>
+                                0 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                5
+                            </th>
+                            <td>
+                                45 SET
+                            </td>
+                            <td>
+                                7 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                6
+                            </th>
+                            <td>
+                                34 SET
+                            </td>
+                            <td>
+                                15 SET
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                7
+                            </th>
+                            <td>
+                                38 SET
+                            </td>
+                            <td>
+                                9 SET
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </center>
+
+    </div>
+ <!-- --------------------------------------------------End Library Page---------------------------------------------------------------------------------------------------------------------------    -->
+ 
+ 
+ 
+ <!-- ------------------------------------------------------------Start Cash Counter Page--------------------------------------------------------------------------------------------------  -->
+ <div class="cash-counter">
+        <center>
+            <div class="head">
+                <center>
+                    <p>***** CASH-COUNTER MANAGEMENT *****</p>
+                </center>
+            </div>
+        </center>
+        <div class="dep-one" id="cash-ref">
+            <center>
+                <p>REFRESH</p>
+            </center>
+        </div>
+        <div class="dep-one" id="show-cashrec">
+            <center>
+                <p>SHOW STUDENT RECORD</p>
+            </center>
+        </div>
+
+        <div class="dep-one" id="exam-fess">
+            <center>
+                <p>FILL-UP EXAM FEES</p>
+            </center>
+        </div>
+        <div class="dep-one" class="two" id="cash-exit">
+            <center>
+                <p>EXIT</p>
+            </center>
+        </div>
+<!-- ---------------------------------------------------------Exam Fess Page---------------------------------------------------------------------------------------------------------------------------------------- -->
+        <center>
+            <div class="exam-fess">
+
+                <center>
+                    <p id="stu-head">EXAM FESS </p>
+                </center>
+                <center>
+                    <div class="opt-one">
+                        <label for="rn">ROLL.NO</label>
+                        <input type="number" id="rn" placeholder="Enter Studen's Roll.No. ">
+                    </div>
+                </center>
+                <center>
+                    <div class="opt-one">
+                        <label for="cash-name">STUDENT NAME</label>
+                        <input type="text" id="cash-name" placeholder="Enter Student Name">
+                    </div>
+                </center>
+                <center>
+                    <div class="opt-one">
+                        <label for="cash-std"> STANDARD </label>
+                        <input type="text" id="cash-std" placeholder="Enter Standard ">
+                    </div>
+                </center>
+                <center>
+                    <div class="opt-one">
+                        <label for="exam-type"> EXAM NAME </label>
+                        <input type="text" id="exam-type" placeholder="Enter Exam Type ">
+                    </div>
+                </center>
+
+                <center>
+                    <div class="opt-one">
+                        <label for="ex-fess">EXAM FESS</label>
+                        <input type="text" name="" id="ex-fess" placeholder="Take Fess LIKE : Yes OR No ">
+                    </div>
+                </center>
+                <button type="submit" class="ex-fess">SUBMIT</button>
+
+            </div>
+        </center>
+<!-- ------------------------------------------------------------------Start Show  cash-counter Data Page----------------------------------------------        -->
+        <center>
+            <div class="cash-list">
+
+                <center>
+                    <div class="cash-list">
+                        <table class="tab">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <center>Sr No.</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>ROLL.NO</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>STUDENT NAME</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>STANDARD</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>EXAM NAME</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>EXAM FESS STATUS</center>
+                                    </th>
+                                    <th>
+                                        <center>ACTION</center>
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody class="fess-body">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </center>
+
+            </div>
+        </center>
+
+    </div>
+
+<!-- -----------------------------------------------------------End Cash Counter Page ------------------------------------------------------------------------      -->
+<!-- -------------------------------------------------------------Start Login Pge------------------------------------------------------------------------------------------   -->
+    <div class="log-in">
+        <form action="">
+            <center>
+                <h1>Log-In Form</h1>
+            </center>
+            <center><input type="text" placeholder="         Enter Your Id"></center> <br>
+            <center> <input type="password" name="" id="in2" placeholder="      Enter Your Password "></center>
+        </form>
+        <center><button type="submit" id="sub"><b> Log-In </b></button></center>
+    </div>
+
+<!-- -------------------------------------------------------End Login Page --------------------------------------------------------------------------------  -->
+
+
+
+</body>
+
+</html>
